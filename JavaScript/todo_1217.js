@@ -6,7 +6,7 @@
 
 /* 실습과제 */
 // git 설치
-// Dev/Yedam_JavaScript = git clone https://github.com/jh675/Yedam_JavaScript.git
+// Dev/Yedam_JavaScript = git clone https://github.com/jh675/yeda_js.git
 
 // 이름, 연락처, 주소 정보를 입력하면 Console에 출력.
 // 예시
@@ -15,4 +15,10 @@
 // 깃 명령어
 // git add *
 // git commit -m "12-17 숙제완료"
-// git push origin JavaScript_Main_JH
+// git push origin main
+
+let name = prompt('이름을 입력해주세요.');
+let tel = prompt('연락처를 입력해주세요.');
+let adr = prompt('주소를 입력해주세요.');
+
+console.log(`\"이름은 ${name}, 전화번호는 ${tel}, 주소는 ${adr}\"`);
