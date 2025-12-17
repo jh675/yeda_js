@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScrtipt Basic</title>
+</head>
+<body>
+  <h1>Hello, JavaScript!</h1>
+  <script>
+    // JavaScript
+    // Output
+    // 1. alert Output
+    // alert('Hello, JavaScript');
+
+    // 2. Document Ouput
+    // document.write('Hello, JavaScript');
+    
+    // 3. Console Output
+    // console.log("Hello, JavaScript");
+
+    // Input
+    // 1. Prompt
+    // let a → a는 변수. (변수: 데이터를 저장하는 기억공간의 이름.)
+    // 변수는 반드시 시작할 때 문자로만 가능. (단, 특수문자 중에서 '_'와 '$'는 변수 시작에도 사용 가능.)
+    // 변수는 숫자로 시작하거나 공백 사용, 키워드 등은 사용 불가.
+    // $는 jQuery로 인식하기 때문에 사실상 특수문자는 '_'만 가능.
+    let name, age;
+    name = prompt('Can you enter your name?');
+    age = Number(prompt('Can you enter your age?'));
+    console.log('이름은 ' + name + '이고\n' + (age + 10) + '세 입니다.');
+    console.log('이름은 ' + name + '이고\t' + age + '세 입니다.');
+    // console.log('My name is ' + name + ' and ' + age + ' years old.');
+
+    // 2. Confirm
+    // let check = confirm('수락하시겠습니까?');
+    // console.log(check);
+
+    // 사각형의 너비구하기
+    // 가로 길이
+    let wid = 10;
+    // 세로 길이
+    let hei = 10;
+    // 너비 구하기
+    document.write('A');
+    document.write('<br>사각형의 너비는 ' + wid + ' * ' + hei + ' = ' + wid * hei);
+
+    // let hei 재선언 불가.
+    hei = 50; // 재할당 가능.
+
+    console.log('사각형의 너비는 ' + wid + ' * ' + hei + ' = ' + wid * hei);
+
+    // 1.상수 선언
+    // 상수: 변하지 않는 값. => 재선언 및 재할당 불가. 선언 시 반드시 값 입력.
+    // 변수명은 대문자 사용
+   /* 예시 */ const PI = 3.14; //PI를 대문자로 썻다.
+    console.log(PI);
+    // PI = 3.5; 재할당 불가.
+
+    // 자료형: null(아무것도 없음), undifined(변수가 선언만 되어있고 값은 할당되지 않은 상태.)
+    let ntype = '';
+    let untype;
+    console.log(ntype + '\n' + untype);
+
+    // 배열: 하나의 변수에 여러 개의 값을 저장할 수 있는 자료 구조
+    // 변수명 = [value1, value2, value3, value4 ...]; ex) let a = ["1", "2", "가을", "겨울", "아이스크림"];
+    // 데이터 불러오기: 변수명[index] ex) a[0]를 불러오며 0번에 있는 값 1을 불러온다.
+
+    let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    console.log('nums에 있는 값: ' + nums);
+    console.log('nums의 크기: ' + nums.length);
+    // console.log(nums[0] + nums[4]);
+    let numS = [14, 39, 55, 74, 48, 66, 25];
+    console.log('numS에 있는 값: ' + numS);
+    console.log('numS의 크기: ' + numS.length);
+    // sum = numS[1] + numS[5];
+    // console.log(sum);
+
+    // Object
+    // 키와 값으로 표현. 데이터(속성)와 기능(메소드)를 가진 자료 구조.
+    // 변수명 = {키:값, 키:값, 키:값 ...}; ex) let b = {stl:'1234', ste:'val' ...} ;
+    // 데이터 불러오기: 변수명.키 => 값을 불러온다.
+
+    let person = {
+      name : 'person',
+      age : 25,
+      job : 'programmer',
+      eat : function(food) { //메소드
+        console.log(food);
+      }
+    };
+
+    console.log(person); // person이라는 객체의 모든 key와 value를 가져온다.(순서는 무작위)
+    console.log(person.age); // person의 age라는 key의 value를 가져온다.
+    console.log(person.job); // console.log(object.key);
+    person.eat('French fries'); //eat에서 French fries를 받아서 person의 eat key의 value인 function을 실행.
+    console.log(person.eat); // 함수를 실행시킨 것이 아니라 eat을 key로 썻기 때문에 value가 들어가있는 
+                              // function 자체를 출력함
+                              // eat() -> 메소드를 실행 -> 결과 / eat -> 정의된 메소드를 출력.(메소드 실행x)
+    
+    console.log(typeof(person)); // object(객체)라고 출력
+    console.log(typeof(person.age));
+    console.log(typeof(person.job));
+    console.log(typeof(person.eat));
+    console.log(typeof(nums));
+
+    console.log('10' * '5');
+    
+
+    // Templete String
+    console.log('-----------------------------------------------');
+    age = 20;
+    name = 'KimJinHwan';
+    console.log('나의 이름은 ' + name + '이고, 나이는 ' + age + '세로 10년 후에는 ' + (age + 10) + '세');
+    console.log(`나의 이름은 ${name}이고, 나이는 ${age}세로 10년 후에는 ${age + 10}세`)
+</script>
+</body>
+</html>
