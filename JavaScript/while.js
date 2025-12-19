@@ -4,16 +4,16 @@ let i = 1;
 let sum = 0;
 
 for (i; i < 6; i++) {
-  console.log(`${sum} + ${i} = ${sum += i}`);
-};
+  console.log(`${sum} + ${i} = ${(sum += i)}`);
+}
 
 // for문과 동일한 내용의 while문
 i = 1;
 sum = 0;
 while (i < 6) {
-  console.log(`${sum} + ${i} = ${sum += i}`);
+  console.log(`${sum} + ${i} = ${(sum += i)}`);
   i++;
-};
+}
 
 // while문은 몇번을 반복해야되는 지는 알 수 없으나 조건이 충족될 때까지 해야하는 경우에 쓰임.
 
@@ -92,7 +92,6 @@ let avgScore = 0;
 
 // console.log(`${cnt}명의 점수 합계는 ${sumScore}점이며, 평균 점수는 ${avgScore}점 입니다.`);
 
-
 // 평균2
 cnt = 0;
 sumScore = 0;
@@ -102,40 +101,53 @@ let MaxCnt = 0;
 let MinScore = 0;
 let MinCnt = 0;
 
-while(true) {
-  let score = prompt("점수를 입력하시오.\n종료시에는 숫자가 아닌 문자를 입력해주세요.");
-  if(isNaN(Number(score))) { // 숫자가 아닌 값을 입력받았을 때 실행
+while (true) {
+  let score = prompt(
+    "점수를 입력하시오.\n종료시에는 숫자가 아닌 문자를 입력해주세요."
+  );
+  if (isNaN(Number(score))) {
+    // 숫자가 아닌 값을 입력받았을 때 실행
     break;
-  };
+  }
   cnt++; // 학생 수 증가
   sumScore += Number(score); // 점수 누적
-  if(MaxScore < score) {
+  if (MaxScore < score) {
     MaxScore = score;
     MaxCnt = cnt;
-    console.log(`${MaxCnt}번째 학생이 최고점수를 갱신하였습니다.\n최고점수: ${MaxScore}`);
-  };
+    console.log(
+      `${MaxCnt}번째 학생이 최고점수를 갱신하였습니다.\n최고점수: ${MaxScore}`
+    );
+  }
   if (MinScore == 0) {
     MinScore = score;
     MinCnt = cnt;
-    console.log(`${MinCnt}번째 학생이 최저점수를 갱신하였습니다.\n최저점수: ${MinScore}`);
-  } else if(MinScore > score) {
+    console.log(
+      `${MinCnt}번째 학생이 최저점수를 갱신하였습니다.\n최저점수: ${MinScore}`
+    );
+  } else if (MinScore > score) {
     MinScore = score;
     MinCnt = cnt;
-    console.log(`${MinCnt}번째 학생이 최저점수를 갱신하였습니다.\n최저점수: ${MinScore}`);
+    console.log(
+      `${MinCnt}번째 학생이 최저점수를 갱신하였습니다.\n최저점수: ${MinScore}`
+    );
   }
   console.log(`------------------`);
-  console.log(`${cnt}번째 학생의 점수는 ${score}입니다.\n현재까지 합계 점수는 ${sumScore}입니다.`);
+  console.log(
+    `${cnt}번째 학생의 점수는 ${score}입니다.\n현재까지 합계 점수는 ${sumScore}입니다.`
+  );
   console.log(`------------------`);
-};
+}
 
 console.log(`최고점수는 ${MaxScore}점이며, ${MaxCnt}번째 학생입니다.`);
 console.log(`최저점수는 ${MinScore}점이며, ${MinCnt}번째 학생입니다.`);
 
-avgScore = sumScore/cnt;
-Math.floor(avgScore *= 10);
+avgScore = sumScore / cnt;
+Math.floor((avgScore *= 10));
 avgScore /= 10;
 
-console.log(`${cnt}명의 점수 합계는 ${sumScore}점이며, 평균 점수는 ${avgScore}점 입니다.`);
+console.log(
+  `${cnt}명의 점수 합계는 ${sumScore}점이며, 평균 점수는 ${avgScore}점 입니다.`
+);
 
 //문자를 받아와 입력한 문자들의 아스키 코드 값을 누적시키기.
 let n = 0;
@@ -143,9 +155,9 @@ while (true) {
   let sc = prompt("문자 입력");
   for (let i = 0; i < sc.length; i++) {
     n += sc.charCodeAt(i);
-  };
+  }
   console.log(n);
-  if(sc == null) {
+  if (sc == null) {
     break;
   }
 }
