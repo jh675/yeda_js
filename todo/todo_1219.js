@@ -9,8 +9,7 @@
 // 친구 키 평균 구하기(avgHei) / 제일 큰 키(이름) (maxHei(fNm))
 // 테이블 태그를 이용해서 document.write로 그리기
 
-const friend = [
-  {
+const friend = [{
     fNm: "JH",
     fTel: "010-1111-2222",
     fBirth: "97-04-01",
@@ -35,3 +34,25 @@ const friend = [
     fHei: "179.13",
   },
 ];
+
+let avgHei = 0, // 평균 키
+  maxHei = 0, // 제일 큰 키
+  amxFnm = 0;
+console.log(friend.length);
+
+let html = "<hr><table border = 2><thead><tr><th>이름</th><th>연락처</th><th>생일</th><th>키</th></tr></thead><tbody>"
+for (let f of friend) {
+  html += `<tr>`; // 행 생성
+  for (let h in f) {
+    html += `<td>${f[h]}</td>` // 데이터 입력
+  }
+  avgHei += Number((f.fHei)); // 키 더하기.
+  if (f.fHei > maxHei) {
+    maxHei = f.fHei;
+    maxFnm = f.fNm;
+  };
+  html += `</tr>`; // 행 종료
+}
+html += `<tr><td>평균키</td><td>${avgHei/friend.length}</td><td>최대키</td><td>${maxHei}(${maxFnm})</td></tr></tbody></table>`;
+
+document.write(html);
