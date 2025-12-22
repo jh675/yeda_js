@@ -35,28 +35,22 @@ class People {
 
 const ds = ["일", "월", "화", "수", "목", "금", "토"];
 
-function printCalendaer(yyyy, mm) {
-  let today = new Date();
-  today.setFullYear(yyyy);
-  today.setMonth(mm); // 4월을 보게됨
-  today.setDate(0); // 전월 마지막날로 들어가면서 3월
-  const lastDay = today.getDate(); // 3월을 대입
-  today.setMonth(mm - 1); // 3월로 설정
-  today.setDate(1); // 1일로 지정
-  console.log(lastDay);
-  const space = today.getDay(), // 여백 공간
-    firstDay = 1;
-  let html = "<table border = 2><thead><tr>";
+function printCalendar(yyyy, mm) {
+  const firstDay = new Date(yyyy, mm - 1, 1),
+    lastDay = new Date(yyyy, mm, 0).getDate(),
+    space = firstDay.getDay();
+  console.log(firstDay + '/' + lastDay + '/' + space);
+  let html = `<table border = 2 style=width:400px><thead><caption>${yyyy} - ${String(mm).padStart(2, "0")}</caption><tr>`;
   for (let d of ds) {
     // 요일 적어주기
     html += `<th>${d}</th>`;
   }
-  html += "</tr></thead><tbody><tr>";
+  html += "</tr></thead><tbody style=text-align:right><tr>";
   for (let s = 0; s < space; s++) {
     // 공란 넣어주기
     html += `<td></td>`;
   }
-  for (let d = firstDay; d <= lastDay; d++) {
+  for (let d = 1; d <= lastDay; d++) {
     html += `<td>${d}</td>`;
     if ((d + space) % 7 == 0) {
       html += "</tr><tr>";
@@ -66,4 +60,8 @@ function printCalendaer(yyyy, mm) {
 
   document.writeln(html);
 }
-printCalendaer(2025, 3);
+
+const year = prompt("년도를 입력하세요.", 2025);
+const mon = prompt("월을 입력해주세요");
+
+printCalendar(year, mon);
