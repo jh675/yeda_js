@@ -25,22 +25,21 @@ class People {
 /****************************************************************************************/
 
 // 숙제
-// let year = 2025,
-//   month = 2;
+// let year = 2025;
+// let month = 2;
 
 // today.setFullYear(year); // 2025년
 // today.setMonth(month); // month가 2니까 계산되는 달은 3월
 // today.setDate(0); // 0은 1-1이니까 전월의 마지막날
 // today.getDay(); // 1일의 요일, 마지막 요일
 
-const ds = ["일", "월", "화", "수", "목", "금", "토"];
-
 function printCalendar(yyyy, mm) {
+  const ds = ["일", "월", "화", "수", "목", "금", "토"];
   const firstDay = new Date(yyyy, mm - 1, 1),
     lastDay = new Date(yyyy, mm, 0).getDate(),
     space = firstDay.getDay();
-  console.log(firstDay + '/' + lastDay + '/' + space);
-  let html = `<table border = 2 style=width:400px><thead><caption>${yyyy} - ${String(mm).padStart(2, "0")}</caption><tr>`;
+  let html = `<table border = 2 style=width:400px><thead><caption>
+  ${yyyy} - ${String(mm).padStart(2, "0")}</caption><tr>`;
   for (let d of ds) {
     // 요일 적어주기
     html += `<th>${d}</th>`;
@@ -58,10 +57,46 @@ function printCalendar(yyyy, mm) {
   }
   html += `</tr></tbody></table>`;
 
-  document.writeln(html);
+  document.querySelector("#calendar").innerHTML = html;
 }
 
-const year = prompt("년도를 입력하세요.", 2025);
-const mon = prompt("월을 입력해주세요");
+let year;
+let mon;
 
-printCalendar(year, mon);
+document.querySelectorAll("button")[0].addEventListener("click", () => {
+  year = Number(document.querySelector("#yyyy").value);
+  mon = Number(document.querySelector("#mm").value);
+  if (document.querySelector("#mm").value > 1) {
+    mon--;
+    document.querySelector("#mm").value = mon;
+  } else {
+    year--;
+    document.querySelector("#yyyy").value = year;
+    mon = 12;
+    document.querySelector("#mm").value = mon;
+  }
+  printCalendar(year, mon);
+});
+
+document.querySelectorAll("button")[1].addEventListener("click", () => {
+  year = Number(document.querySelector("#yyyy").value);
+  mon = Number(document.querySelector("#mm").value);
+  printCalendar(year, mon);
+});
+
+document.querySelectorAll("button")[2].addEventListener("click", () => {
+  year = Number(document.querySelector("#yyyy").value);
+  mon = Number(document.querySelector("#mm").value);
+  if (document.querySelector("#mm").value == 12) {
+    year++;
+    document.querySelector("#yyyy").value = year;
+    mon = 1;
+    console.log(mon);
+    document.querySelector("#mm").value = mon;
+    console.log(document.querySelector("#mm").value);
+  } else {
+    mon++;
+    document.querySelector("#mm").value = mon;
+  }
+  printCalendar(year, mon);
+});

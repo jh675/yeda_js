@@ -8,6 +8,14 @@
       h3 {
         color: red;
       }
+      tr > th:first-child,
+      td:first-child {
+        color: red;
+      }
+      /* tr > th:last-child,
+      td:last-child {
+        color: blue;
+      } */
     </style>
   </head>
 
@@ -23,8 +31,14 @@
       <li>감자</li>
       <li>옥수수</li>
     </ul>
-    <button>이벤트</button>
+    <hr />
 
+    Y: <input type="number" id="yyyy" value="2025" max="2099" />
+    <!--  -->
+    M: <input type="number" id="mm" value="12" max="12" min="1" />
+
+    <button>◀</button><button>달력출력</button><button>▶</button>
+    <div id="calendar"></div>
     <!-- JavaScript 경로 -->
     <!-- <script src="JavaScript/date.js"></script> -->
     <!-- todo 경로 -->
