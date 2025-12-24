@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Managemet</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1>Student Management(List, Insert, Delete) with bootStrap</h1>
+    <div class="insStd">
+      <h3>Student Information Insert</h3>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th>학생번호</th>
+            <td>
+              <input
+                type="text"
+                id="stdNo"
+                class="form-control"
+                autocomplete="off"
+                autofocus
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>학생이름</th>
+            <td>
+              <input
+                type="text"
+                id="stdNm"
+                class="form-control"
+                autocomplete="off"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>학생성적</th>
+            <td>
+              <input
+                type="number"
+                id="stdSc"
+                class="form-control"
+                max="100"
+                min="0"
+                value="0"
+                autocomplete="off"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center">
+              <button class="btn btn-success">등록</button>
+              <button class="btn btn-primary" id="updCom" style="display: none">
+                수정완료
+              </button>
+              <button class="btn btn-secondary">취소</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="list">
+      <h3>Student List</h3>
+      <table class="table table-info">
+        <thead>
+          <tr>
+            <th>학생번호</th>
+            <th>학생이름</th>
+            <th>학생성적</th>
+            <th>비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>250101</td>
+            <td>KJH</td>
+            <td>90</td>
+          </tr>
+          <tr>
+            <td>250102</td>
+            <td>YHJ</td>
+            <td>97</td>
+          </tr>
+          <tr>
+            <td>250103</td>
+            <td>PSW</td>
+            <td>95</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="JavaScript/student.js"></script>
+  </body>
+</html>
