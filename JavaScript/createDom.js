@@ -1,4 +1,4 @@
-// create_dom.js
+// createDom.js
 
 // form에 submit 이벤트를 등록
 // 이벤트가 전파 차단(e.stopPropagation());
@@ -8,6 +8,8 @@ document
   .querySelector('form[name="addForm"]')
   .addEventListener("submit", (e) => {
     e.preventDefault(); // submit를 차단.
+
+    console.log(e.target);
 
     //li 추가
     let liTag = document.createElement("li"); // li태그 생성해서 저장
@@ -25,10 +27,10 @@ document
     liTag.appendChild(spTag);
     // let txtNode = document.createTextNode(txt); // textNode에 txt를 노드로 만들어서 저장.
     // input은 문자열이기 때문에 TextNode가 먹히지 않는다. (value도 지정할 수 없다.)
-    // liTag.innerText = txt; // 담기.(26번 라인과 결과는 동일하다. 아무거나.)
-    // liTag.appendChild(txtNode) // 담기.(25번 라인과 결과는 동일하다. 단, 11번 라인을 썻을때만 이용가능.)
+    // liTag.innerText = txt; // 담기.(29번 라인과 결과는 동일하다. 아무거나.)
+    // liTag.appendChild(txtNode) // 담기.(28번 라인과 결과는 동일하다. 단, 11번 라인을 썻을때만 이용가능.)
     // appendChild는 노드에 적용할 수 있기 때문에 appendChild를 할 경우,
-    // txt를 노드로 만들어줘야한다. (22번 라인 참고)
+    // txt를 노드로 만들어줘야한다. (26번 라인 참고)
 
     //ul태그에 자식태그로 li 추가
     document.querySelector("ul#itemList").appendChild(liTag);

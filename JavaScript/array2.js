@@ -1,4 +1,4 @@
-// forEach.js
+// array2.js
 
 const nameAry = new Array();
 nameAry.push("KJH");
